@@ -1,2 +1,15 @@
-# sorting-algorithm-comparison
- Comparison of various sorting algorithms.
+# Sorting Algorithm Comparison
+
+ Comparison of Quicksort and Insertion Sort algorithms.
+
+# Analysis Key Points
+
+* Contrary to its purpose of sorting large arrays, Quicksort performs well when sorting the small array of “test1.txt” (83 comparisons). It performs almost as well as Insertion sort (73 comparisons), which is counter-intuitive. This happens because after partitioning the left size of array is randomized and the right one is sorted. Quicksort gets average of approximately Nlog2N performance. Array after partitioning looks like this: 101 7 73 41 57 18 66 25 12 65 97 51 103 (pivot) 110 118.
+* Quicksort performs worse while sorting the second array of “test2.txt”. The array is the same length as the first one (n = 15), however, it is sorted by default in a somewhat ascending order, therefore the partitions are very uneven. Quicksort gets average of approximately N2 performance and makes 108 comparisons as opposing to 30 by Insertion sort (since array is in an ascending order). Array after partitioning looks like this: 14 5 18 25 41 110 43 73 66 65 97 103 59 112 118 (pivot).
+* Quicksort performs well with the large array of “test3.txt”, gets a bit bigger than average of Nlog2N performance and makes 1008 comparisons, however, Insertion sort performs notoriously badly with this type of array. The array is large and seems to have small numbers at the end of it, therefore, Insertion sort is forced to make 2882 comparisons, which is 1874 comparisons more than Quicksort’s performance.
+* Quicksort performs badly with the 4th array of “test4.txt” even though it has the same length as array of “test3.txt”. Quicksort does 1563 comparisons, which is poorer than the average performance of the “test3.txt” array (1008 comparisons). This happens because the array is in an ascending order and the partitioning is very uneven.
+* The fact that the 4th array of “test4.txt” is in ascending order is what causes Insertion sort to speed up. Even though Quicksort does 1563 comparisons to sort the array, Insertion sort does 447, which is 1116 comparisons less. This result is contradictory to “test3.txt” array results when Insertion sort did 1874 more comparisons than Quicksort sorting an array of the same size as “test4.txt”.
+TASK 5.
+* The new sorting algorithm performs better than Insertion sort when testing the 5th array (“test5.txt”) because it contains a lot of duplicate values. Insertion sort keeps finding smaller values and adding them into beginning of the sorted array. Newsort finds the smallest value from the current position and puts it on the left side of a completely sorted array. When there are a lot of duplicate values, this process is greatly accelerated, therefore Newsort performs better – 1682 comparisons, while Insertion sort does 3011.
+* Worst case performance occurs when there are no duplicates in the array and the numbers are completely randomised, the performance then would be O(N2).
+* Best case performance is when array consists of one duplicate value repeated throughout the array, so the algorithm goes through the array once. Big Oh performance is O(N).
